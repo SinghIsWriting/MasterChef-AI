@@ -10,6 +10,15 @@ MasterChef-AI is a recipe generator web app that uses HTML, CSS, JavaScript, and
 * Responsive design for mobile and desktop devices
 * Session-based recipe storage for personalized experience
 
+## Demo Videos
+
+These videos demonstrate how to use MasterChef-AI:
+
+> <video src="https://github.com/SinghIsWriting/MasterChef-AI/assets/122283853/e768bab8-557c-4769-98b3-01a455f17d97" mute/>
+
+> <video src="https://github.com/SinghIsWriting/MasterChef-AI/assets/122283853/4d30269d-92ba-486d-ad51-1cd89ee31678" mute/>
+
+
 ## Technology Stack
 
 * Python
