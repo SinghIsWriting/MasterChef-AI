@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasterChef - AI</title>
+    <link rel="stylesheet" href="{% static 'masterChef/css/style.css' %}">
+
+    <script type="text/javascript">
+        function copyToClipboard(){
+            const output = document.getElementById("data");
+            const copy = document.getElementById("copy");
+            const textarea = document.createElement("textarea");
+            textarea.value = output.textContent;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            copy.textContent = "Copied";
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const text = `{{recipe}}`;
+            const lines = Array(text.split("\n"));
+            const textElement = document.getElementById('data');
+            let index = 0;
+
+            function displayText() {
+                if (index < lines[0].length) {
+                    textElement.textContent += lines[0][index] + '\n';
+                    index++;
+                    setTimeout(displayText, 100);
+                }
+            }
+            displayText();
+        });
+    </script>
+</head>
+<body>
+
+    <div class="nav">
+        <h1>MasterChef AI</h1>
+        <ul>
+            <li><a href="{% url "home" %}">Food Name</a></li>
+            <li style="{% if request.path != '/' %}box-shadow: 0px 4px 8px rgb(255, 140, 0);{% endif %}"><a href="{% url "ingredients" %}" >Ingredients</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Welcome to <span> Master Chef - Artificial Intelligence</span></h1>
+        <form method="post" action="{% url 'ingredients' %}">
+            {% csrf_token %}
+            {{form.recipe_msg}}
+            <button type="submit">Get Recipe</button>
+        </form>
+        <div class="output">
+            <h1>Your Recipe</h1>
+            <button id="copy" onclick="copyToClipboard()">Copy</button>
+        </div>
+        <pre id="data"></pre>
+    </div>
+</body>
+</html>
