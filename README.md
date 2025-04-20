@@ -2,6 +2,8 @@
 
 MasterChef-AI is a recipe generator web app that uses HTML, CSS, JavaScript, and Django framework to provide food recipes based on user input. The app allows users to search for recipes by food name or ingredients, and it uses AI algorithms to generate personalized recipes based on the user's preferences.
 
+## Deployed App Link: https://masterchefai.devhome.me
+
 ## Features
 
 * Search for recipes by food name or ingredients
